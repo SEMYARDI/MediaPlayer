@@ -1,9 +1,21 @@
 package com.semyardi;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class FileSearchTest {
+    @Test
+    void FileSearchTest() {
+        Map<String,String> map= new TreeMap<>();
+        search("C:\\Program Files (x86)\\Steam\\tenfoot\\resource\\sounds",map);
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            System.out.println("Name "+entry.getKey()+" -- "+"Path: "+entry.getValue());
+
+        }
+    }
 
     public void search(String path, Map<String,String> map) {
 
@@ -27,19 +39,6 @@ public class FileSearchTest {
             // Music formats : often used -> (AAC, MP3, WAV, WMA) other music formats -> (AIFF, ASF, FLAC, ADPCM, DSD, LPCM, OGG)
         }
 
-        /*
-        FileSearch s=new FileSearch();
-        Map<String,String> map= new TreeMap<>();
-        s.search("C://",map);
-        //for (String ster:map.values()) {
 
-           // System.out.println(ster);
-        //}
-        //another variant
-        for(Map.Entry<String,String> entry:map.entrySet()){
-            System.out.println("Name "+entry.getKey()+" -- "+"Path: "+entry.getValue());
-
-        }
-        */
     }
 }
